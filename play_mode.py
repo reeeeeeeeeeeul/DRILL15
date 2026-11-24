@@ -49,9 +49,15 @@ def init():
     zombies = [Zombie() for _ in range(4)]
     game_world.add_objects(zombies, 1)
 
+    # 소년과 좀비 사이 충돌 페어 등록
     game_world.add_collision_pair("boy:zombie", boy, None)
     for zombie in zombies:
         game_world.add_collision_pair("boy:zombie", None, zombie)
+
+    #좀비와 볼 사이 충돌 페어 등록
+    game_world.add_collision_pair("zombie:ball", zombie, None)
+    for ball in balls:
+        game_world.add_collision_pair("zombie:ball", None, ball)
 
 def pause():
     boy.pause()
