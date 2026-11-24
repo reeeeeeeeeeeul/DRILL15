@@ -54,3 +54,14 @@ class Zombie:
 
     def get_bb(self):
         return self.x - 100, self.y - 100, self.x + 100, self.y + 100
+
+
+
+    def handle_collision(self, group, other):
+        if group == 'ball:zombie':
+            image = Zombie.images['Walk'][int(self.frame)]
+            if self.dir < 0:
+                image.composite_draw(0, 'h', self.x/2, self.y/2, 100, 100)
+            else:
+                image.draw(self.x/2, self.y/2, 100, 100)
+            

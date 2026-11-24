@@ -55,9 +55,10 @@ def init():
         game_world.add_collision_pair("boy:zombie", None, zombie)
 
     #좀비와 볼 사이 충돌 페어 등록
-    game_world.add_collision_pair("zombie:ball", zombie, None)
     for ball in balls:
-        game_world.add_collision_pair("zombie:ball", None, ball)
+        game_world.add_collision_pair("ball:zombie", ball, None)
+    for zombie in zombies:
+        game_world.add_collision_pair("ball:zombie", None, zombie)
 
 def pause():
     boy.pause()
