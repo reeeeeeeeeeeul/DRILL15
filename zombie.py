@@ -1,3 +1,4 @@
+from email.mime import image
 import random
 
 from pico2d import load_image, clamp
@@ -59,9 +60,4 @@ class Zombie:
 
     def handle_collision(self, group, other):
         if group == 'ball:zombie':
-            image = Zombie.images['Walk'][int(self.frame)]
-            if self.dir < 0:
-                image.composite_draw(0, 'h', self.x/2, self.y/2, 100, 100)
-            else:
-                image.draw(self.x/2, self.y/2, 100, 100)
-            
+            pass

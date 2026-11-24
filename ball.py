@@ -1,3 +1,5 @@
+from typing import Self
+
 from pico2d import get_canvas_width, load_image
 
 import game_world
@@ -46,5 +48,8 @@ class Ball:
         if group == 'boy:ball':
             game_world.remove_object(self)
 
-        if group == 'ball:zombie':
+        elif group == 'grass:ball':
+            self.stopped = True
+
+        elif group == 'ball:zombie':
             game_world.remove_object(self)
